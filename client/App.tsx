@@ -7,10 +7,13 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
-import StudentScan from "./pages/StudentScan";
-import AdminDashboard from "./pages/AdminDashboard";
-import AddStudent from "./pages/AddStudent";
+import ResumeBuilder from "./pages/ResumeBuilder";
+import Templates from "./pages/Templates";
+import Pricing from "./pages/Pricing";
+import AIAssistant from "./pages/AIAssistant";
+import Dashboard from "./pages/Dashboard";
 import NotFound from "./pages/NotFound";
+import FloatingAIChat from "./components/FloatingAIChat";
 
 const queryClient = new QueryClient();
 
@@ -22,12 +25,15 @@ const App = () => (
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<Index />} />
-          <Route path="/scan" element={<StudentScan />} />
-          <Route path="/admin" element={<AdminDashboard />} />
-          <Route path="/add-student" element={<AddStudent />} />
+          <Route path="/builder" element={<ResumeBuilder />} />
+          <Route path="/templates" element={<Templates />} />
+          <Route path="/pricing" element={<Pricing />} />
+          <Route path="/ai-assistant" element={<AIAssistant />} />
+          <Route path="/dashboard" element={<Dashboard />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
+        <FloatingAIChat />
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
