@@ -414,6 +414,14 @@ export default function LandingPage() {
                 </li>
                 <li>
                   <Link
+                    to="/ai-assistant"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+                  >
+                    AI Assistant
+                  </Link>
+                </li>
+                <li>
+                  <Link
                     to="/pricing"
                     className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
