@@ -85,18 +85,24 @@ export default function LandingPage() {
               >
                 Home
               </Link>
-              <a
-                href="#templates"
+              <Link
+                to="/templates"
                 className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
               >
                 Templates
-              </a>
-              <a
-                href="#pricing"
+              </Link>
+              <Link
+                to="/pricing"
                 className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
               >
                 Pricing
-              </a>
+              </Link>
+              <Link
+                to="/ai-assistant"
+                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+              >
+                AI Assistant
+              </Link>
               <a
                 href="#features"
                 className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
