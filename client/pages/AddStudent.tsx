@@ -37,8 +37,9 @@ export default function AddStudent() {
             </h1>
 
             <p className="text-gray-600 mb-8">
-              This page will contain a form for adding new students with fields for name,
-              roll number, class, and email, plus a QR code generation panel.
+              This page will contain a form for adding new students with fields
+              for name, roll number, class, and email, plus a QR code generation
+              panel.
             </p>
 
             <div className="bg-blue-50 p-4 rounded-xl border border-blue-200 mb-8">

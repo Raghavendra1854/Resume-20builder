@@ -119,7 +119,7 @@ export default function Templates() {
 
   const filteredTemplates = selectedCategory
     ? templates.filter((t) =>
-        selectedCategory === "All" ? true : t.category === selectedCategory
+        selectedCategory === "All" ? true : t.category === selectedCategory,
       )
     : templates;
 
@@ -160,8 +160,8 @@ export default function Templates() {
             Choose Your Perfect Template
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Select from our professionally designed resume templates and customize
-            to match your style
+            Select from our professionally designed resume templates and
+            customize to match your style
           </p>
         </div>
       </section>
@@ -176,7 +176,9 @@ export default function Templates() {
             {categories.map((category) => (
               <button
                 key={category}
-                onClick={() => setSelectedCategory(category === "All" ? null : category)}
+                onClick={() =>
+                  setSelectedCategory(category === "All" ? null : category)
+                }
                 className={`px-4 py-2 rounded-full font-medium transition-colors ${
                   (!selectedCategory && category === "All") ||
                   selectedCategory === category
@@ -299,7 +301,9 @@ export default function Templates() {
 
                 <div className="space-y-6 text-gray-900">
                   <div>
-                    <h3 className="font-bold text-lg mb-2">Professional Summary</h3>
+                    <h3 className="font-bold text-lg mb-2">
+                      Professional Summary
+                    </h3>
                     <p className="text-gray-700">
                       Experienced professional with 5+ years in the industry,
                       skilled in multiple technologies and methodologies.
@@ -309,7 +313,9 @@ export default function Templates() {
                   <div>
                     <h3 className="font-bold text-lg mb-2">Experience</h3>
                     <div>
-                      <p className="font-semibold">Senior Role - Tech Company</p>
+                      <p className="font-semibold">
+                        Senior Role - Tech Company
+                      </p>
                       <p className="text-gray-600">2020 - Present</p>
                       <p className="text-gray-700 mt-1">
                         Led development of key features and managed team.

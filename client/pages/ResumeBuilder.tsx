@@ -78,7 +78,8 @@ export default function ResumeBuilder() {
         position: "Senior Software Engineer",
         startDate: "2020",
         endDate: "Present",
-        description: "Led development of key features and mentored junior engineers.",
+        description:
+          "Led development of key features and mentored junior engineers.",
       },
     ],
     education: [
@@ -139,7 +140,7 @@ export default function ResumeBuilder() {
     setResumeData({
       ...resumeData,
       experience: resumeData.experience.map((exp) =>
-        exp.id === id ? { ...exp, [field]: value } : exp
+        exp.id === id ? { ...exp, [field]: value } : exp,
       ),
     });
   };
@@ -234,10 +235,7 @@ export default function ResumeBuilder() {
                 <Download className="w-4 h-4 mr-2" />
                 PDF
               </Button>
-              <Button
-                variant="outline"
-                onClick={() => handleExport("docx")}
-              >
+              <Button variant="outline" onClick={() => handleExport("docx")}>
                 <File className="w-4 h-4 mr-2" />
                 DOCX
               </Button>
@@ -310,7 +308,9 @@ export default function ResumeBuilder() {
                   <input
                     type="email"
                     value={resumeData.personalInfo.email}
-                    onChange={(e) => updatePersonalInfo("email", e.target.value)}
+                    onChange={(e) =>
+                      updatePersonalInfo("email", e.target.value)
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
@@ -321,7 +321,9 @@ export default function ResumeBuilder() {
                   <input
                     type="tel"
                     value={resumeData.personalInfo.phone}
-                    onChange={(e) => updatePersonalInfo("phone", e.target.value)}
+                    onChange={(e) =>
+                      updatePersonalInfo("phone", e.target.value)
+                    }
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                   />
                 </div>
@@ -382,7 +384,11 @@ export default function ResumeBuilder() {
                             type="text"
                             value={exp.company}
                             onChange={(e) =>
-                              updateExperience(exp.id, "company", e.target.value)
+                              updateExperience(
+                                exp.id,
+                                "company",
+                                e.target.value,
+                              )
                             }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
@@ -404,7 +410,11 @@ export default function ResumeBuilder() {
                             type="text"
                             value={exp.position}
                             onChange={(e) =>
-                              updateExperience(exp.id, "position", e.target.value)
+                              updateExperience(
+                                exp.id,
+                                "position",
+                                e.target.value,
+                              )
                             }
                             className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                           />
@@ -423,7 +433,7 @@ export default function ResumeBuilder() {
                                 updateExperience(
                                   exp.id,
                                   "startDate",
-                                  e.target.value
+                                  e.target.value,
                                 )
                               }
                               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
@@ -438,7 +448,11 @@ export default function ResumeBuilder() {
                               placeholder="Present"
                               value={exp.endDate}
                               onChange={(e) =>
-                                updateExperience(exp.id, "endDate", e.target.value)
+                                updateExperience(
+                                  exp.id,
+                                  "endDate",
+                                  e.target.value,
+                                )
                               }
                               className="w-full px-3 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
                             />
@@ -455,7 +469,7 @@ export default function ResumeBuilder() {
                               updateExperience(
                                 exp.id,
                                 "description",
-                                e.target.value
+                                e.target.value,
                               )
                             }
                             rows={3}
@@ -581,16 +595,17 @@ export default function ResumeBuilder() {
                       SKILLS
                     </h2>
                     <div className="flex flex-wrap gap-2">
-                      {resumeData.skills.map((skill, idx) => (
-                        skill && (
-                          <span
-                            key={idx}
-                            className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium"
-                          >
-                            {skill}
-                          </span>
-                        )
-                      ))}
+                      {resumeData.skills.map(
+                        (skill, idx) =>
+                          skill && (
+                            <span
+                              key={idx}
+                              className="bg-purple-100 text-purple-700 px-3 py-1 rounded-full text-sm font-medium"
+                            >
+                              {skill}
+                            </span>
+                          ),
+                      )}
                     </div>
                   </div>
                 )}

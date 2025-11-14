@@ -1,14 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import {
-  FileText,
-  ArrowLeft,
-  Check,
-  X,
-  Zap,
-  Star,
-  Crown,
-} from "lucide-react";
+import { FileText, ArrowLeft, Check, X, Zap, Star, Crown } from "lucide-react";
 import { useState } from "react";
 
 interface PlanFeature {
@@ -33,7 +25,7 @@ const planFeatures: PlanFeature[] = [
 
 export default function Pricing() {
   const [billingPeriod, setBillingPeriod] = useState<"monthly" | "yearly">(
-    "monthly"
+    "monthly",
   );
 
   const proPrice = billingPeriod === "monthly" ? 9.99 : 99.99;
@@ -177,7 +169,9 @@ export default function Pricing() {
                 <span className="text-4xl font-bold text-gray-900">
                   ${proPrice}
                 </span>
-                <span className="text-gray-600">/{billingPeriod === "monthly" ? "month" : "year"}</span>
+                <span className="text-gray-600">
+                  /{billingPeriod === "monthly" ? "month" : "year"}
+                </span>
               </div>
 
               <Link to="/builder">
@@ -188,11 +182,15 @@ export default function Pricing() {
 
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-gray-900 mb-3">Everything in Free, plus:</p>
+                  <p className="font-semibold text-gray-900 mb-3">
+                    Everything in Free, plus:
+                  </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">20+ Professional Templates</span>
+                      <span className="text-gray-700">
+                        20+ Professional Templates
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
@@ -204,11 +202,15 @@ export default function Pricing() {
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">AI Content Suggestions</span>
+                      <span className="text-gray-700">
+                        AI Content Suggestions
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <X className="w-5 h-5 text-gray-300 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-500">Cover Letter Builder</span>
+                      <span className="text-gray-500">
+                        Cover Letter Builder
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -229,7 +231,9 @@ export default function Pricing() {
                 <span className="text-4xl font-bold text-gray-900">
                   ${premiumPrice}
                 </span>
-                <span className="text-gray-600">/{billingPeriod === "monthly" ? "month" : "year"}</span>
+                <span className="text-gray-600">
+                  /{billingPeriod === "monthly" ? "month" : "year"}
+                </span>
               </div>
 
               <Link to="/builder">
@@ -240,11 +244,15 @@ export default function Pricing() {
 
               <div className="space-y-4">
                 <div>
-                  <p className="font-semibold text-gray-900 mb-3">Everything in Pro, plus:</p>
+                  <p className="font-semibold text-gray-900 mb-3">
+                    Everything in Pro, plus:
+                  </p>
                   <ul className="space-y-3">
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Cover Letter Builder</span>
+                      <span className="text-gray-700">
+                        Cover Letter Builder
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
@@ -256,11 +264,15 @@ export default function Pricing() {
                     </li>
                     <li className="flex items-start gap-3">
                       <Check className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Priority Email Support</span>
+                      <span className="text-gray-700">
+                        Priority Email Support
+                      </span>
                     </li>
                     <li className="flex items-start gap-3">
                       <Zap className="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">Early Access to New Features</span>
+                      <span className="text-gray-700">
+                        Early Access to New Features
+                      </span>
                     </li>
                   </ul>
                 </div>
@@ -297,7 +309,10 @@ export default function Pricing() {
               </thead>
               <tbody>
                 {planFeatures.map((feature) => (
-                  <tr key={feature.name} className="border-b border-gray-200 hover:bg-white">
+                  <tr
+                    key={feature.name}
+                    className="border-b border-gray-200 hover:bg-white"
+                  >
                     <td className="py-4 px-6 font-medium text-gray-900">
                       {feature.name}
                     </td>

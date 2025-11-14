@@ -42,12 +42,14 @@ const features = [
   {
     icon: Sparkles,
     title: "AI Auto-Fill Resume",
-    description: "Let our AI intelligently fill in your resume based on your information",
+    description:
+      "Let our AI intelligently fill in your resume based on your information",
   },
   {
     icon: Download,
     title: "Download in PDF/Word",
-    description: "Export your resume in multiple formats ready for job applications",
+    description:
+      "Export your resume in multiple formats ready for job applications",
   },
   {
     icon: FileText,
@@ -75,7 +77,9 @@ export default function LandingPage() {
               <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
                 <FileText className="w-6 h-6 text-white" />
               </div>
-              <span className="font-bold text-xl text-gray-900 dark:text-white">ResumeAI</span>
+              <span className="font-bold text-xl text-gray-900 dark:text-white">
+                ResumeAI
+              </span>
             </div>
 
             {/* Desktop Navigation */}
@@ -286,14 +290,18 @@ export default function LandingPage() {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="bg-white px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+      <section
+        id="features"
+        className="bg-white px-4 sm:px-6 lg:px-8 py-20 sm:py-32"
+      >
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Powerful Features
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Everything you need to create a professional resume that stands out
+              Everything you need to create a professional resume that stands
+              out
             </p>
           </div>
 
@@ -345,7 +353,9 @@ export default function LandingPage() {
                     />
                   ))}
                 </div>
-                <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+                <p className="text-gray-700 mb-6 italic">
+                  "{testimonial.text}"
+                </p>
                 <div>
                   <p className="font-semibold text-gray-900">
                     {testimonial.name}

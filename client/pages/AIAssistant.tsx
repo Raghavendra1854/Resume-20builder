@@ -21,7 +21,8 @@ interface GeneratedContent {
 
 export default function AIAssistant() {
   const [inputText, setInputText] = useState("");
-  const [generatedContent, setGeneratedContent] = useState<GeneratedContent | null>(null);
+  const [generatedContent, setGeneratedContent] =
+    useState<GeneratedContent | null>(null);
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
 
@@ -130,7 +131,8 @@ export default function AIAssistant() {
                   🎯 Smart Content Generation
                 </h3>
                 <p className="text-gray-600">
-                  Our AI analyzes your input and generates professional content optimized for ATS systems.
+                  Our AI analyzes your input and generates professional content
+                  optimized for ATS systems.
                 </p>
               </div>
 
@@ -139,7 +141,8 @@ export default function AIAssistant() {
                   💡 Skill Extraction
                 </h3>
                 <p className="text-gray-600">
-                  Automatically identifies and extracts key skills from your bio or job description.
+                  Automatically identifies and extracts key skills from your bio
+                  or job description.
                 </p>
               </div>
 
@@ -148,7 +151,8 @@ export default function AIAssistant() {
                   ✨ Professional Tone
                 </h3>
                 <p className="text-gray-600">
-                  All content is written in professional language that impresses recruiters.
+                  All content is written in professional language that impresses
+                  recruiters.
                 </p>
               </div>
 
@@ -157,13 +161,15 @@ export default function AIAssistant() {
                   📊 ATS Optimized
                 </h3>
                 <p className="text-gray-600">
-                  Generated content is optimized to pass Applicant Tracking Systems.
+                  Generated content is optimized to pass Applicant Tracking
+                  Systems.
                 </p>
               </div>
 
               <div className="pt-4 border-t border-purple-200">
                 <p className="text-xs text-gray-600">
-                  💡 <strong>Tip:</strong> Paste your bio, job description, or previous resume content for best results.
+                  💡 <strong>Tip:</strong> Paste your bio, job description, or
+                  previous resume content for best results.
                 </p>
               </div>
             </div>
@@ -257,7 +263,9 @@ I am a software engineer with 5 years of experience building web applications us
                       Professional Summary
                     </h3>
                     <button
-                      onClick={() => copyToClipboard(generatedContent.summary, "summary")}
+                      onClick={() =>
+                        copyToClipboard(generatedContent.summary, "summary")
+                      }
                       className="text-gray-600 hover:text-gray-900 transition-colors"
                     >
                       {copied === "summary" ? (
@@ -282,7 +290,10 @@ I am a software engineer with 5 years of experience building web applications us
                     </h3>
                     <button
                       onClick={() =>
-                        copyToClipboard(generatedContent.skills.join(", "), "skills")
+                        copyToClipboard(
+                          generatedContent.skills.join(", "),
+                          "skills",
+                        )
                       }
                       className="text-gray-600 hover:text-gray-900 transition-colors"
                     >

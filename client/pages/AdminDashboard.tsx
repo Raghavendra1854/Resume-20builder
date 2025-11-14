@@ -37,8 +37,8 @@ export default function AdminDashboard() {
             </h1>
 
             <p className="text-gray-600 mb-8">
-              This page will contain the admin dashboard with sidebar menu, overview
-              cards, and attendance records table.
+              This page will contain the admin dashboard with sidebar menu,
+              overview cards, and attendance records table.
             </p>
 
             <div className="bg-blue-50 p-4 rounded-xl border border-blue-200 mb-8">

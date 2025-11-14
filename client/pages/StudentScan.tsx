@@ -62,7 +62,9 @@ export default function StudentScan() {
               <h1 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-2">
                 Mark Attendance
               </h1>
-              <p className="text-gray-600">Scan your QR code to mark attendance</p>
+              <p className="text-gray-600">
+                Scan your QR code to mark attendance
+              </p>
             </div>
 
             {/* Camera Preview Box */}
@@ -93,8 +95,8 @@ export default function StudentScan() {
               {/* Instructions */}
               <div className="mt-6 p-4 bg-blue-50 rounded-xl border border-blue-200">
                 <p className="text-sm text-blue-900">
-                  📱 <strong>Tip:</strong> Hold your phone steady and ensure good lighting
-                  for faster scanning.
+                  📱 <strong>Tip:</strong> Hold your phone steady and ensure
+                  good lighting for faster scanning.
                 </p>
               </div>
             </div>
