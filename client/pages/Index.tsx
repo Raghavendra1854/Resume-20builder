@@ -67,7 +67,7 @@ export default function LandingPage() {
   return (
     <div className="min-h-screen bg-white flex flex-col">
       {/* Header */}
-      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+      <header className="sticky top-0 z-50 bg-white dark:bg-gray-900 border-b border-gray-200 dark:border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
@@ -75,7 +75,7 @@ export default function LandingPage() {
               <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
                 <FileText className="w-6 h-6 text-white" />
               </div>
-              <span className="font-bold text-xl text-gray-900">ResumeAI</span>
+              <span className="font-bold text-xl text-gray-900 dark:text-white">ResumeAI</span>
             </div>
 
             {/* Desktop Navigation */}
