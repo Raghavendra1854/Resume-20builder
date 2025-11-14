@@ -12,6 +12,7 @@ import {
   ArrowRight,
 } from "lucide-react";
 import { useState } from "react";
+import ThemeToggle from "@/components/ThemeToggle";
 
 const testimonials = [
   {
