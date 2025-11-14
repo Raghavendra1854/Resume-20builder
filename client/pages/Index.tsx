@@ -113,7 +113,8 @@ export default function LandingPage() {
             </nav>
 
             {/* Auth Buttons */}
-            <div className="hidden md:flex gap-3">
+            <div className="hidden md:flex gap-3 items-center">
+              <ThemeToggle />
               <Button
                 variant="outline"
                 className="border-gray-300 text-gray-700 hover:bg-gray-50"
