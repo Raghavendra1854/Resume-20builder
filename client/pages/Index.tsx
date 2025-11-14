@@ -1,14 +1,64 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import {
-  Smartphone,
+  FileText,
   Zap,
-  BarChart3,
-  QrCode,
+  Download,
+  Sparkles,
   ChevronRight,
   Menu,
+  X,
+  Star,
+  ArrowRight,
 } from "lucide-react";
 import { useState } from "react";
+
+const testimonials = [
+  {
+    id: 1,
+    name: "Sarah Johnson",
+    role: "Marketing Manager",
+    text: "Created my professional resume in just 15 minutes! The AI suggestions were incredibly helpful.",
+    rating: 5,
+  },
+  {
+    id: 2,
+    name: "Michael Chen",
+    role: "Software Engineer",
+    text: "Best resume builder I've used. The templates look amazing and are easy to customize.",
+    rating: 5,
+  },
+  {
+    id: 3,
+    name: "Emily Rodriguez",
+    role: "Product Designer",
+    text: "The drag-and-drop editor is so intuitive. I got multiple interview calls within a week!",
+    rating: 5,
+  },
+];
+
+const features = [
+  {
+    icon: Sparkles,
+    title: "AI Auto-Fill Resume",
+    description: "Let our AI intelligently fill in your resume based on your information",
+  },
+  {
+    icon: Download,
+    title: "Download in PDF/Word",
+    description: "Export your resume in multiple formats ready for job applications",
+  },
+  {
+    icon: FileText,
+    title: "20+ Templates",
+    description: "Choose from professionally designed resume templates",
+  },
+  {
+    icon: Zap,
+    title: "Skill Suggestions",
+    description: "Get AI-powered suggestions to improve your skills section",
+  },
+];
 
 export default function LandingPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -21,39 +71,51 @@ export default function LandingPage() {
           <div className="flex justify-between items-center h-16">
             {/* Logo */}
             <div className="flex items-center gap-2">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shadow-md">
-                <QrCode className="w-6 h-6 text-white" />
+              <div className="w-10 h-10 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                <FileText className="w-6 h-6 text-white" />
               </div>
-              <span className="font-bold text-xl text-gray-900">AttendQR</span>
+              <span className="font-bold text-xl text-gray-900">ResumeAI</span>
             </div>
 
             {/* Desktop Navigation */}
             <nav className="hidden md:flex items-center gap-8">
               <Link
                 to="/"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
               >
                 Home
               </Link>
               <a
+                href="#templates"
+                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+              >
+                Templates
+              </a>
+              <a
+                href="#pricing"
+                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+              >
+                Pricing
+              </a>
+              <a
                 href="#features"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
               >
                 Features
               </a>
-              <a
-                href="#footer"
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-              >
-                Contact
-              </a>
             </nav>
 
-            {/* Admin Login Button */}
-            <div className="hidden md:block">
-              <Link to="/admin">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
-                  Admin Login
+            {/* Auth Buttons */}
+            <div className="hidden md:flex gap-3">
+              <Button
+                variant="outline"
+                className="border-gray-300 text-gray-700 hover:bg-gray-50"
+              >
+                Sign In
+              </Button>
+              <Link to="/builder">
+                <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:opacity-90 text-white">
+                  Build Resume
                 </Button>
               </Link>
             </div>
@@ -63,7 +125,11 @@ export default function LandingPage() {
               className="md:hidden"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             >
-              <Menu className="w-6 h-6 text-gray-900" />
+              {mobileMenuOpen ? (
+                <X className="w-6 h-6 text-gray-900" />
+              ) : (
+                <Menu className="w-6 h-6 text-gray-900" />
+              )}
             </button>
           </div>
 
@@ -73,27 +139,38 @@ export default function LandingPage() {
               <nav className="flex flex-col gap-4 pt-4">
                 <Link
                   to="/"
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
                 >
                   Home
                 </Link>
                 <a
+                  href="#templates"
+                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+                >
+                  Templates
+                </a>
+                <a
+                  href="#pricing"
+                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
+                >
+                  Pricing
+                </a>
+                <a
                   href="#features"
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                  className="text-gray-700 hover:text-purple-600 font-medium transition-colors"
                 >
                   Features
                 </a>
-                <a
-                  href="#footer"
-                  className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
-                >
-                  Contact
-                </a>
-                <Link to="/admin">
-                  <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white rounded-lg">
-                    Admin Login
+                <div className="flex gap-3 pt-4">
+                  <Button variant="outline" className="w-full border-gray-300">
+                    Sign In
                   </Button>
-                </Link>
+                  <Link to="/builder" className="w-full">
+                    <Button className="w-full bg-gradient-to-r from-purple-600 to-blue-600 hover:opacity-90 text-white">
+                      Build Resume
+                    </Button>
+                  </Link>
+                </div>
               </nav>
             </div>
           )}
@@ -101,40 +178,40 @@ export default function LandingPage() {
       </header>
 
       {/* Hero Section */}
-      <section className="flex-1 bg-gradient-to-br from-white via-blue-50 to-blue-100 px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+      <section className="flex-1 bg-gradient-to-br from-white via-purple-50 to-blue-50 px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             {/* Left Content */}
             <div className="flex flex-col gap-8">
               <div>
                 <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-4">
-                  QR-Based
-                  <span className="bg-gradient-to-r from-blue-600 to-blue-400 bg-clip-text text-transparent">
+                  Create Your Professional Resume
+                  <span className="bg-gradient-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">
                     {" "}
-                    Attendance System
+                    in Minutes
                   </span>
                 </h1>
                 <p className="text-lg sm:text-xl text-gray-600 max-w-lg">
-                  Modern, efficient, and secure attendance tracking with QR codes.
-                  Perfect for schools, colleges, and enterprises.
+                  AI-powered resume builder that helps you create stunning,
+                  ATS-friendly resumes that get noticed by recruiters.
                 </p>
               </div>
 
               {/* CTA Buttons */}
               <div className="flex flex-col sm:flex-row gap-4">
-                <Link to="/scan">
-                  <Button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
-                    <Smartphone className="w-5 h-5 mr-2" />
-                    Scan QR
+                <Link to="/builder">
+                  <Button className="bg-gradient-to-r from-purple-600 to-blue-600 hover:opacity-90 text-white px-8 py-6 text-lg rounded-lg shadow-lg hover:shadow-xl transition-all w-full sm:w-auto">
+                    <Sparkles className="w-5 h-5 mr-2" />
+                    Build My Resume
                   </Button>
                 </Link>
-                <Link to="/admin">
+                <Link to="/templates">
                   <Button
                     variant="outline"
-                    className="border-2 border-blue-600 text-blue-600 hover:bg-blue-50 px-8 py-6 text-lg rounded-lg w-full sm:w-auto"
+                    className="border-2 border-purple-600 text-purple-600 hover:bg-purple-50 px-8 py-6 text-lg rounded-lg w-full sm:w-auto"
                   >
-                    Admin Login
-                    <ChevronRight className="w-5 h-5 ml-2" />
+                    Explore Templates
+                    <ArrowRight className="w-5 h-5 ml-2" />
                   </Button>
                 </Link>
               </div>
@@ -143,24 +220,51 @@ export default function LandingPage() {
             {/* Right Illustration */}
             <div className="flex items-center justify-center">
               <div className="relative">
-                {/* Mobile Phone Mockup */}
-                <div className="w-64 h-96 bg-black rounded-3xl shadow-2xl p-3 border-8 border-gray-900">
-                  {/* Notch */}
-                  <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-32 h-6 bg-black rounded-b-2xl z-10"></div>
+                {/* Resume Preview Card */}
+                <div className="w-64 bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-200">
+                  {/* Header */}
+                  <div className="bg-gradient-to-r from-purple-600 to-blue-600 p-6 text-white">
+                    <h3 className="font-bold text-lg">John Doe</h3>
+                    <p className="text-sm text-purple-100">
+                      Senior Software Engineer
+                    </p>
+                  </div>
 
-                  {/* Screen */}
-                  <div className="w-full h-full bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl overflow-hidden flex flex-col items-center justify-center">
-                    <div className="text-center">
-                      <QrCode className="w-20 h-20 text-blue-600 mx-auto mb-4" />
-                      <p className="text-sm font-semibold text-gray-700">
-                        Point camera at QR code
+                  {/* Content */}
+                  <div className="p-6 space-y-4">
+                    <div>
+                      <p className="text-xs font-semibold text-gray-500 uppercase">
+                        Contact
+                      </p>
+                      <p className="text-sm text-gray-700 mt-1">
+                        john@example.com | (555) 123-4567
+                      </p>
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-semibold text-gray-500 uppercase">
+                        Experience
+                      </p>
+                      <p className="text-sm text-gray-700 mt-1 font-semibold">
+                        Tech Company
+                      </p>
+                      <p className="text-xs text-gray-500">2020 - Present</p>
+                    </div>
+
+                    <div>
+                      <p className="text-xs font-semibold text-gray-500 uppercase">
+                        Skills
+                      </p>
+                      <p className="text-sm text-gray-700 mt-1">
+                        React, TypeScript, Node.js
                       </p>
                     </div>
                   </div>
                 </div>
 
                 {/* Floating Gradient Ball */}
-                <div className="absolute top-10 right-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full opacity-20 blur-3xl"></div>
+                <div className="absolute -top-10 -right-10 w-40 h-40 bg-gradient-to-br from-purple-400 to-blue-400 rounded-full opacity-20 blur-3xl"></div>
+                <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-gradient-to-br from-blue-400 to-purple-400 rounded-full opacity-20 blur-3xl"></div>
               </div>
             </div>
           </div>
@@ -175,117 +279,146 @@ export default function LandingPage() {
               Powerful Features
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-              Everything you need to manage attendance efficiently and securely
+              Everything you need to create a professional resume that stands out
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {/* Feature 1: Real-time Attendance */}
-            <div className="group p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-lg hover:border-blue-200 transition-all duration-300">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:from-blue-200 transition-all">
-                <Zap className="w-7 h-7 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Real-time Attendance
-              </h3>
-              <p className="text-gray-600">
-                Track attendance instantly with live updates and real-time
-                synchronization across all devices.
-              </p>
-            </div>
-
-            {/* Feature 2: QR Scanning */}
-            <div className="group p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-lg hover:border-blue-200 transition-all duration-300">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:from-blue-200 transition-all">
-                <QrCode className="w-7 h-7 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                QR Code Scanning
-              </h3>
-              <p className="text-gray-600">
-                Generate unique QR codes for each student and scan them with
-                any device camera in seconds.
-              </p>
-            </div>
-
-            {/* Feature 3: Reports & Analytics */}
-            <div className="group p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-lg hover:border-blue-200 transition-all duration-300">
-              <div className="w-14 h-14 bg-gradient-to-br from-blue-100 to-blue-50 rounded-lg flex items-center justify-center mb-6 group-hover:from-blue-200 transition-all">
-                <BarChart3 className="w-7 h-7 text-blue-600" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">
-                Reports & Analytics
-              </h3>
-              <p className="text-gray-600">
-                Generate comprehensive attendance reports and analytics to track
-                patterns and insights.
-              </p>
-            </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {features.map((feature) => {
+              const IconComponent = feature.icon;
+              return (
+                <div
+                  key={feature.title}
+                  className="group p-8 rounded-2xl border border-gray-200 bg-white hover:shadow-lg hover:border-purple-200 transition-all duration-300"
+                >
+                  <div className="w-14 h-14 bg-gradient-to-br from-purple-100 to-blue-100 rounded-lg flex items-center justify-center mb-6 group-hover:from-purple-200 group-hover:to-blue-200 transition-all">
+                    <IconComponent className="w-7 h-7 text-purple-600" />
+                  </div>
+                  <h3 className="text-lg font-bold text-gray-900 mb-3">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600">{feature.description}</p>
+                </div>
+              );
+            })}
           </div>
         </div>
       </section>
 
+      {/* Testimonials Section */}
+      <section className="bg-gradient-to-br from-gray-50 to-gray-100 px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Trusted by Thousands
+            </h2>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              See what our users have to say about ResumeAI
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {testimonials.map((testimonial) => (
+              <div
+                key={testimonial.id}
+                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-200"
+              >
+                <div className="flex gap-1 mb-4">
+                  {[...Array(testimonial.rating)].map((_, i) => (
+                    <Star
+                      key={i}
+                      className="w-5 h-5 fill-yellow-400 text-yellow-400"
+                    />
+                  ))}
+                </div>
+                <p className="text-gray-700 mb-6 italic">"{testimonial.text}"</p>
+                <div>
+                  <p className="font-semibold text-gray-900">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-sm text-gray-600">{testimonial.role}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* CTA Section */}
+      <section className="bg-gradient-to-r from-purple-600 to-blue-600 px-4 sm:px-6 lg:px-8 py-20 sm:py-32">
+        <div className="max-w-4xl mx-auto text-center">
+          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+            Ready to Build Your Perfect Resume?
+          </h2>
+          <p className="text-lg text-purple-100 mb-8">
+            Join thousands of job seekers who've landed their dream jobs with
+            ResumeAI
+          </p>
+          <Link to="/builder">
+            <Button className="bg-white hover:bg-gray-100 text-purple-600 px-8 py-6 text-lg rounded-lg font-semibold shadow-lg hover:shadow-xl transition-all">
+              Start Building Now
+              <ChevronRight className="w-5 h-5 ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+
       {/* Footer */}
-      <footer
-        id="footer"
-        className="bg-gradient-to-br from-gray-50 to-gray-100 border-t border-gray-200"
-      >
+      <footer className="bg-gray-900 border-t border-gray-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 sm:py-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
             {/* Brand */}
             <div>
               <div className="flex items-center gap-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-to-br from-blue-600 to-blue-400 rounded-lg flex items-center justify-center shadow-md">
-                  <QrCode className="w-5 h-5 text-white" />
+                <div className="w-8 h-8 bg-gradient-to-br from-purple-600 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                  <FileText className="w-5 h-5 text-white" />
                 </div>
-                <span className="font-bold text-lg text-gray-900">
-                  AttendQR
-                </span>
+                <span className="font-bold text-lg text-white">ResumeAI</span>
               </div>
-              <p className="text-gray-600 text-sm">
-                Modern QR-based attendance system for schools and enterprises.
+              <p className="text-gray-400 text-sm">
+                The AI-powered resume builder that gets you hired.
               </p>
             </div>
 
             {/* Product */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Product</h4>
+              <h4 className="font-semibold text-white mb-4">Product</h4>
               <ul className="space-y-2">
                 <li>
                   <Link
-                    to="/scan"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                    to="/builder"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
-                    Scan QR
+                    Resume Builder
                   </Link>
                 </li>
                 <li>
                   <Link
-                    to="/admin"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                    to="/templates"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
-                    Admin Dashboard
+                    Templates
                   </Link>
                 </li>
                 <li>
-                  <a
-                    href="#features"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                  <Link
+                    to="/pricing"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
-                    Features
-                  </a>
+                    Pricing
+                  </Link>
                 </li>
               </ul>
             </div>
 
             {/* Company */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Company</h4>
+              <h4 className="font-semibold text-white mb-4">Company</h4>
               <ul className="space-y-2">
                 <li>
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
                     About Us
                   </a>
@@ -293,7 +426,15 @@ export default function LandingPage() {
                 <li>
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
+                  >
+                    Blog
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
                     Contact
                   </a>
@@ -303,12 +444,12 @@ export default function LandingPage() {
 
             {/* Legal */}
             <div>
-              <h4 className="font-semibold text-gray-900 mb-4">Legal</h4>
+              <h4 className="font-semibold text-white mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
                     Privacy Policy
                   </a>
@@ -316,7 +457,7 @@ export default function LandingPage() {
                 <li>
                   <a
                     href="/"
-                    className="text-gray-600 hover:text-blue-600 text-sm transition-colors"
+                    className="text-gray-400 hover:text-purple-400 text-sm transition-colors"
                   >
                     Terms of Service
                   </a>
@@ -326,9 +467,9 @@ export default function LandingPage() {
           </div>
 
           {/* Divider */}
-          <div className="border-t border-gray-200 pt-8">
-            <p className="text-center text-gray-600 text-sm">
-              © 2024 AttendQR. All rights reserved.
+          <div className="border-t border-gray-800 pt-8">
+            <p className="text-center text-gray-400 text-sm">
+              © 2024 ResumeAI. All rights reserved.
             </p>
           </div>
         </div>
